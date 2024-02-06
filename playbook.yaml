@@ -1,0 +1,17 @@
+
+- hosts: servers
+  become: yes
+  vars:
+    user_name: username
+    ssh_key: "XX"  # here put ur ssh key
+  tasks:
+    - name: adding user {{ user_name }}
+      user:
+        name: "{{ user_name }}"
+        create_home: yes
+        shell: /bin/bash
+
+    - name: adding ssh key to authorized_keys
+      authorized_key:
+        user: "{{ user_name }}"
+        key: "{{ ssh_key }}"
