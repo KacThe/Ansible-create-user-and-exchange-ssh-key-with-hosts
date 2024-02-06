@@ -2,7 +2,7 @@
 - hosts: servers
   become: yes
   vars:
-    user_name: username
+    user_name: username # change to ur username
     ssh_key: "XX"  # here put ur ssh key
   tasks:
     - name: adding user {{ user_name }}
